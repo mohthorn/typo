@@ -195,10 +195,5 @@ describe CategoriesController, "SEO Options" do
     response.should have_selector(expected)
   end
 
-  def after_build_category_should_not_have_selector expected
-    cat = Factory(:category, :permalink => 'personal', :keywords => "some, keywords")
-    Factory(:article, :categories => [cat])
-    get 'show', :id => 'personal'
-    response.should_not have_selector(expected)
-  end
+
 end

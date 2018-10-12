@@ -16,6 +16,14 @@ describe Admin::CategoriesController do
     assert_response :redirect, :action => 'index'
   end
 
+  it "test_create" do
+    cat = Factory(:category)
+    Category.should_receive(:find).with(:all).and_return([])
+    Category.should_receive(:new).and_return(cat)
+    post :edit, 'category' => { :name =>"test_cat",:keywords=> "test_keywords",:permalink => "link", :description => "this is a description"   }
+    assert_redirected_to :action => 'new'
+  end
+  
   describe "test_edit" do
     before(:each) do
       get :edit, :id => Factory(:category).id
@@ -62,5 +70,11 @@ describe Admin::CategoriesController do
 
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
-  
+
+  it "test_destroy with POST" do
+    new_cat = Factory(:category)
+    assert_not_nil Category.find(new_cat.id)
+    get :destroy, :id => new_cat.id
+    post :destroy, :id => new_cat.id
+  end
 end

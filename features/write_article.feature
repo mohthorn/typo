@@ -17,3 +17,12 @@ Feature: Write Articles
     Then I should see "Foobar"
     When I follow "Foobar"
     Then I should see "Lorem Ipsum"
+
+  Scenario: Already in Categories
+    Given I am on the categories page
+    Then I should see "General"
+    
+  Scenario: Go to categories
+    Given I am on the admin content page
+    And I follow "Categories"
+    Then I should see "General"
