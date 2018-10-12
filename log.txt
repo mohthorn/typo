@@ -4,16 +4,17 @@ Admin::CategoriesController
   test_create
   test_update
   test_destroy with POST
-  test_destroy with POST
+  test_new
+    should render template view
   test_edit
     should render template new
     should have valid category
   test_destroy with GET
     should render destroy template
 
-Finished in 0.79232 seconds
+Finished in 0.80759 seconds
 8 examples, 0 failures
-Coverage report generated for RSpec to /home/ec2-user/environment/typo/coverage. 11118 / 14834 LOC (74.95%) covered.
+Coverage report generated for RSpec to /home/ec2-user/environment/typo/coverage. 11122 / 14834 LOC (74.98%) covered.
 Using the default profile...
 Feature: Write Articles
   As a blog administrator
@@ -46,4 +47,4 @@ Feature: Write Articles
 
 3 scenarios (3 passed)
 20 steps (20 passed)
-0m5.110s
+0m3.839s
